@@ -1,0 +1,9 @@
+{
+  "name": "sudoku-project",
+  "version": "1.0.0",
+  "description": "sudoku game",
+  "scripts": {
+    "s:install": "cd client && npm install && cd .. && cd server && npm install"
+  },
+  "author": "Pedro Pedrosa"
+}
