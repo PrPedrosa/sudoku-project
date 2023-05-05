@@ -8,22 +8,27 @@ const InstallPWA = () => {
 	const [promptInstall, setPromptInstall] = useState<null | any>(null)
 	const [numOfDownloads, setNumOfDownloads] = useState<number>()
 
+	type BIPEventResult = {
+		outcome: "accepted" | "dismissed"
+		platform: string
+	}
+
 	useEffect(() => {
 		const handler = (e: any) => {
 			e.preventDefault()
 			setSupportsPWA(true)
 			setPromptInstall(e)
-			e.userChoice.then((result: string) => {
-				console.log("user accepted download")
-				if (result !== "accepted") return
+			console.log("before install prompt triggers")
+			e.userChoice.then((result: BIPEventResult) => {
+				if (result.outcome !== "accepted") return
 				addDownload()
 			})
 		}
 		window.addEventListener("beforeinstallprompt", handler)
 		getDownloads().then(num => {
-			console.log("num of downloassd", num)
 			setNumOfDownloads(num)
 		})
+		//why need this?
 		return () => window.removeEventListener("transitionend", handler)
 	}, [])
 

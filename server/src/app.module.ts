@@ -1,11 +1,13 @@
+require('dotenv').config()
 import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { MetricsModule } from './metrics/metrics.module'
-
+import { GamesModule } from './games/games.module'
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/sudoku'),
-    MetricsModule
+    MongooseModule.forRoot(process.env.MONGODB_CONNECTION_STRING),
+    MetricsModule,
+    GamesModule
   ]
   //controllers: [AppController],
   //providers: [AppService],

@@ -8,10 +8,10 @@ export default defineConfig({
 		react(),
 		VitePWA({
 			registerType: "autoUpdate",
+			devOptions: { enabled: true },
 			workbox: {
 				globPatterns: ["**/*.{js,css,html,ico,png,svg}"]
 			},
-			/* devOptions: { enabled: true }, */
 			includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
 			strategies: "generateSW",
 			manifest: {
@@ -22,30 +22,55 @@ export default defineConfig({
 				background_color: "#1e2124",
 				orientation: "portrait",
 				icons: [
+					/* FOR PROD UNCOMMENT BELOW AND COMMENT THESE */
 					{
-						src: "/assets/maskable_icon_192.png",
+						src: "/icons/maskable_icon_192.png",
 						sizes: "192x192",
 						type: "image/png",
 						purpose: "maskable"
 					},
 					{
-						src: "/assets/maskable_icon_192.png",
+						src: "/icons/maskable_icon_192.png",
 						sizes: "192x192",
 						type: "image/png",
 						purpose: "any"
 					},
 					{
-						src: "/assets/maskable_icon_512.png",
+						src: "/icons/maskable_icon_512.png",
 						sizes: "512x512",
 						type: "image/png",
 						purpose: "maskable"
 					},
 					{
-						src: "/assets/maskable_icon_512.png",
+						src: "/icons/maskable_icon_512.png",
 						sizes: "512x512",
 						type: "image/png",
 						purpose: "any"
 					}
+					/* {
+						src: "/assets/maskable_icon_192.png",
+						sizes: "192x192",
+						type: "image/png",
+						purpose: "maskable"
+					},
+					{
+						src: "/assets/maskable_icon_192.png",
+						sizes: "192x192",
+						type: "image/png",
+						purpose: "any"
+					},
+					{
+						src: "/assets/maskable_icon_512.png",
+						sizes: "512x512",
+						type: "image/png",
+						purpose: "maskable"
+					},
+					{
+						src: "/assets/maskable_icon_512.png",
+						sizes: "512x512",
+						type: "image/png",
+						purpose: "any"
+					} */
 				]
 			}
 		})

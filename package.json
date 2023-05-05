@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "sudoku game",
   "scripts": {
-    "s:install": "cd client && npm install && cd .. && cd server && npm install"
+    "s:install": "cd client && rm -rf node_modules && npm install && cd .. && cd server && rm -rf node_modules && npm install"
   },
   "author": "Pedro Pedrosa"
 }

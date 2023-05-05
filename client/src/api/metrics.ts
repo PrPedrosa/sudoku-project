@@ -1,9 +1,13 @@
 import Axios from "axios"
 
 export async function addVisit() {
+	console.log("here", import.meta.env)
 	try {
-		const res = await Axios.post("http://localhost:3000/metrics/visit")
-		console.log("visit", res)
+		const res = await Axios.post(
+			/* "http://localhost:3000/metrics/visit" */ `${
+				import.meta.env.VITE_API_URL
+			}/metrics/visit`
+		)
 	} catch (error) {
 		console.log("error posting visit", error)
 	}
@@ -11,8 +15,9 @@ export async function addVisit() {
 
 export async function addDownload() {
 	try {
-		const res = await Axios.post("http://localhost:3000/metrics/download")
-		console.log("download", res)
+		const res = await Axios.post(
+			`${import.meta.env.VITE_API_URL}/metrics/download`
+		)
 	} catch (error) {
 		console.log("error posting download", error)
 	}
@@ -21,7 +26,7 @@ export async function addDownload() {
 export async function getDownloads() {
 	try {
 		const res = await Axios.get<number>(
-			"http://localhost:3000/metrics/download"
+			`${import.meta.env.VITE_API_URL}/metrics/download`
 		)
 		return res.data
 	} catch (error) {

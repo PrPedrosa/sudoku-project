@@ -13,10 +13,7 @@ export function GoBackButton({
 }) {
 	if (!playing && !solverMode) return null
 	const [goingBack, setGoingBack] = useState(false)
-	useEffect(() => {
-		const el = document.getElementById("arrow")
-		console.log("el", el)
-	}, [])
+
 	return (
 		<div
 			className={cx(
