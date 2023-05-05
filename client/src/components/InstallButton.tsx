@@ -41,19 +41,26 @@ const InstallPWA = () => {
 	//if (!supportsPWA) return null
 
 	return (
-		<button
-			className={cx(
-				"flex items-center gap-[5px] fixed top-[20px] left-[20px] z-40",
-				"text-[14px] bg-[#f8f8f8] border border-c-purple text-c-purple rounded-[5px] p-[2px]",
-				{ "opacity-[0.5]": !supportsPWA }
+		<div className='flex flex-col gap-[5px] fixed top-[20px] left-[20px] z-40'>
+			<button
+				className={cx(
+					"flex items-center gap-[5px] ",
+					"text-[14px] bg-[#f8f8f8] border border-c-purple text-c-purple rounded-[5px] p-[2px]",
+					{ "opacity-[0.5]": !supportsPWA }
+				)}
+				aria-label='Install app'
+				title='Install app'
+				onClick={onClick}
+			>
+				<SVG path='download' fill='#7289da' w={20} h={20} className='p-[3px]' />
+				<div>Download!</div>
+			</button>
+			{numOfDownloads && numOfDownloads > 9 && (
+				<div className='text-white text-[12px]'>
+					downloads: {numOfDownloads}
+				</div>
 			)}
-			aria-label='Install app'
-			title='Install app'
-			onClick={onClick}
-		>
-			<SVG path='download' fill='#7289da' w={20} h={20} className='p-[3px]' />
-			<div>Download! {numOfDownloads}</div>
-		</button>
+		</div>
 	)
 }
 

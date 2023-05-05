@@ -8,7 +8,7 @@ export default defineConfig({
 		react(),
 		VitePWA({
 			registerType: "autoUpdate",
-			devOptions: { enabled: true },
+			/* devOptions: { enabled: true }, */
 			workbox: {
 				globPatterns: ["**/*.{js,css,html,ico,png,svg}"]
 			},
@@ -23,54 +23,54 @@ export default defineConfig({
 				orientation: "portrait",
 				icons: [
 					/* FOR PROD UNCOMMENT BELOW AND COMMENT THESE */
-					{
-						src: "/icons/maskable_icon_192.png",
-						sizes: "192x192",
-						type: "image/png",
-						purpose: "maskable"
-					},
-					{
-						src: "/icons/maskable_icon_192.png",
-						sizes: "192x192",
-						type: "image/png",
-						purpose: "any"
-					},
-					{
-						src: "/icons/maskable_icon_512.png",
-						sizes: "512x512",
-						type: "image/png",
-						purpose: "maskable"
-					},
-					{
-						src: "/icons/maskable_icon_512.png",
-						sizes: "512x512",
-						type: "image/png",
-						purpose: "any"
-					}
 					/* {
-						src: "/assets/maskable_icon_192.png",
+						src: "/icons/maskable_icon_192.png",
 						sizes: "192x192",
 						type: "image/png",
 						purpose: "maskable"
 					},
 					{
-						src: "/assets/maskable_icon_192.png",
+						src: "/icons/maskable_icon_192.png",
 						sizes: "192x192",
 						type: "image/png",
 						purpose: "any"
 					},
 					{
-						src: "/assets/maskable_icon_512.png",
+						src: "/icons/maskable_icon_512.png",
 						sizes: "512x512",
 						type: "image/png",
 						purpose: "maskable"
 					},
 					{
-						src: "/assets/maskable_icon_512.png",
+						src: "/icons/maskable_icon_512.png",
 						sizes: "512x512",
 						type: "image/png",
 						purpose: "any"
 					} */
+					{
+						src: "/assets/maskable_icon_192.png",
+						sizes: "192x192",
+						type: "image/png",
+						purpose: "maskable"
+					},
+					{
+						src: "/assets/maskable_icon_192.png",
+						sizes: "192x192",
+						type: "image/png",
+						purpose: "any"
+					},
+					{
+						src: "/assets/maskable_icon_512.png",
+						sizes: "512x512",
+						type: "image/png",
+						purpose: "maskable"
+					},
+					{
+						src: "/assets/maskable_icon_512.png",
+						sizes: "512x512",
+						type: "image/png",
+						purpose: "any"
+					}
 				]
 			}
 		})
