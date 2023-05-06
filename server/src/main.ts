@@ -2,13 +2,21 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 //require('dotenv').config()
 
-async function bootstrap() {
+/* async function bootstrap() {
   const app = await NestFactory.create(
-    AppModule /* , {
+    AppModule , {
     cors: { origin: `${process.env.ORIGIN}` }
-  } */
+  }
   )
 
-  await app.listen(3000)
+  await app.listen(3000, () => {
+    console.log('listening to requetss')
+  })
 }
-bootstrap()
+bootstrap() */
+
+NestFactory.create(AppModule).then(app => {
+  app.listen(3000, () => {
+    console.log('listening to requetss')
+  })
+})
