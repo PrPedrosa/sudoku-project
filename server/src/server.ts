@@ -16,6 +16,7 @@ import { AppModule } from './app.module'
 bootstrap() */
 NestFactory.create(AppModule)
   .then(app => {
+    app.enableCors({ origin: process.env.ORIGIN })
     app.listen(3000, () => {
       console.log('listening to requetss')
     })
