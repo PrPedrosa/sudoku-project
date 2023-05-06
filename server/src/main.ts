@@ -14,9 +14,10 @@ import { AppModule } from './app.module'
   })
 }
 bootstrap() */
-
-NestFactory.create(AppModule).then(app => {
-  app.listen(3000, () => {
-    console.log('listening to requetss')
+NestFactory.create(AppModule)
+  .then(app => {
+    app.listen(3000, () => {
+      console.log('listening to requetss')
+    })
   })
-})
+  .catch(err => console.log('the error', err))
