@@ -42,12 +42,12 @@ export function CheckSolutionModal({
 						<div className='flex gap-[25px]'>
 							<div className='flex flex-col items-center mb-[5px]'>
 								<div className='text-[14px] leading-[100%] mb-[5px]'>
-									Solved by:
+									Player:
 								</div>
 								<input
 									type='text'
 									value={name}
-									placeholder='Anon'
+									placeholder='You'
 									className='w-[70px] rounded-[5px] bg-transparent border border-c-dark4 text-center'
 									autoFocus
 									maxLength={4}

@@ -22,7 +22,7 @@ export default defineConfig({
 				background_color: "#1e2124",
 				orientation: "portrait",
 				icons: [
-					/* FOR PROD UNCOMMENT BELOW AND COMMENT THESE */
+					/* FOUR BELOW FOR DEV ONLY */
 					/* {
 						src: "/icons/maskable_icon_192.png",
 						sizes: "192x192",
@@ -47,6 +47,7 @@ export default defineConfig({
 						type: "image/png",
 						purpose: "any"
 					} */
+					//FOUR BELOW FOR PROD ONLY
 					{
 						src: "/assets/maskable_icon_192.png",
 						sizes: "192x192",

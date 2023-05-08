@@ -38,7 +38,7 @@ const InstallPWA = () => {
 		promptInstall.prompt()
 	}
 
-	//if (!supportsPWA) return null
+	if (!supportsPWA) return null
 
 	return (
 		<div className='flex flex-col gap-[5px] fixed top-[20px] left-[20px] z-40'>
@@ -55,7 +55,7 @@ const InstallPWA = () => {
 				<SVG path='download' fill='#7289da' w={20} h={20} className='p-[3px]' />
 				<div>Download!</div>
 			</button>
-			{numOfDownloads && numOfDownloads > 9 && (
+			{numOfDownloads && supportsPWA && numOfDownloads > 9 && (
 				<div className='text-white text-[12px]'>
 					downloads: {numOfDownloads}
 				</div>

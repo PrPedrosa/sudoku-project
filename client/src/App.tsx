@@ -71,10 +71,10 @@ function App() {
 	}
 
 	//Use in dev env only, pass solve func to Board solve prop
-	function solve() {
+	/* function solve() {
 		if (!board) return
 		setBoard(solvedBoard)
-	}
+	} */
 
 	const stopTimer = () => {
 		clearInterval(intervalId)
@@ -131,7 +131,6 @@ function App() {
 		<div
 			className={cx(
 				"h-[100vh] bg-c-dark1 flex w-[100%] items-center justify-center relative overflow-auto"
-				/* { "h-[100%]": window.innerHeight < 543 } */
 			)}
 		>
 			<GoBackButton
@@ -157,7 +156,7 @@ function App() {
 					board={board}
 					handleInput={handleInput}
 					initialSquares={initialSquaresIds}
-					solve={solve}
+					/* solve={solve} */
 				/>
 			)}
 
