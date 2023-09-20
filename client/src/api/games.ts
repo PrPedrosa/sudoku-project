@@ -1,13 +1,11 @@
 import Axios from "axios"
+import { apiUrl } from "./api-config.js"
 
 export async function addGame(game: GameData) {
 	try {
-		const res = await Axios.post<"too slow" | "added">(
-			`${import.meta.env.VITE_API_URL}/games/game`,
-			{
-				game
-			}
-		)
+		const res = await Axios.post<"too slow" | "added">(`${apiUrl}/games/game`, {
+			game
+		})
 		return res.data
 	} catch (error) {
 		console.log("ERROR posting game => ", error)
@@ -16,9 +14,7 @@ export async function addGame(game: GameData) {
 
 export async function getGames() {
 	try {
-		const res = await Axios.get<GameData[][]>(
-			`${import.meta.env.VITE_API_URL}/games/all`
-		)
+		const res = await Axios.get<GameData[][]>(`${apiUrl}/games/all`)
 		return res.data
 	} catch (error) {
 		console.log("ERROR fetching all games => ", error)

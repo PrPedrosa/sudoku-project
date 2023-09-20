@@ -72,7 +72,7 @@ function Square({
 			<div
 				key={sq.id}
 				className={cx(
-					"border-[2px] border-c-dark4 flex  cursor-pointer bg-c-dark2 select-none",
+					"border-[2px] border-[#131313] flex  cursor-pointer bg-c-dark2 select-none",
 					{
 						"border-r-black z-10": sq.id % 3 === 0,
 						"border-l-black z-10": sq.id % 3 === 1,
@@ -83,7 +83,7 @@ function Square({
 						"items-center justify-center": sq.value !== 0,
 						"bg-green-600 text-black": sq.valid && sq.value,
 						"bg-red-700": sq.valid === false && sq.value,
-						"bg-c-dark3": isSibling
+						"bg-c-dark4": isSibling
 					}
 				)}
 				style={{ height: squareHeight }}
@@ -93,7 +93,7 @@ function Square({
 				onTouchEnd={() => handleStopTimer()}
 			>
 				<div
-					className={cx("text-c-purple font-semibold text-[24px]", {
+					className={cx("text-c-purple font-semibold text-[30px]", {
 						"!text-[14px] grid grid-cols-3 h-min gap-[2px] pl-[2px] !text-red-700":
 							sq.value === 0,
 						"!text-c-dark1": selected && !isInitial,
@@ -103,7 +103,9 @@ function Square({
 					{sq.value
 						? sq.value
 						: superPosToShow?.map(n => (
-								<span className='w-min leading-[12px]'>{n}</span>
+								<span className='w-min leading-[12px]' key={n}>
+									{n}
+								</span>
 						  ))}
 				</div>
 			</div>

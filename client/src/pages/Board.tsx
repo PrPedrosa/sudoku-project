@@ -1,9 +1,8 @@
-import Square from "../components/Square"
-import { cx } from "../utils"
-import { Square as SquareType } from "../types"
-import { Board as BoardType } from "../types"
 import { useEffect, useState } from "react"
+import Square from "../components/Square"
 import { useKeyboardControls } from "../hooks/useKeyboardControls"
+import { Board as BoardType, Square as SquareType } from "../types"
+import { cx } from "../utils"
 
 export function Board({
 	board,
@@ -62,6 +61,21 @@ export function Board({
 					Solve!
 				</div>
 			)}
+
+			<div className='grid grid-cols-9 border-[3px] sm:w-[450px] border-black rounded-[5px] shadow-board w-[100%] relative'>
+				{board.map(sq => {
+					return (
+						<Square
+							sq={sq}
+							key={sq.id}
+							select={selectSquare}
+							selected={selectedSquare?.id === sq.id}
+							isInitial={initialSquares?.includes(sq.id)}
+							isSibling={selectedSquareSiblings.includes(sq)}
+						/>
+					)
+				})}
+			</div>
 			<div className='grid grid-cols-10 w-[100%] text-center gap-[5px] sm:w-[450px]'>
 				{inputs.map(i => (
 					<div
@@ -76,20 +90,6 @@ export function Board({
 						{i !== 0 ? i : "0"}
 					</div>
 				))}
-			</div>
-			<div className='grid grid-cols-9 border-[3px] sm:w-[450px] border-black rounded-[5px] shadow-board w-[100%] relative'>
-				{board.map(sq => {
-					return (
-						<Square
-							sq={sq}
-							key={sq.id}
-							select={selectSquare}
-							selected={selectedSquare?.id === sq.id}
-							isInitial={initialSquares?.includes(sq.id)}
-							isSibling={selectedSquareSiblings.includes(sq)}
-						/>
-					)
-				})}
 			</div>
 		</div>
 	)
