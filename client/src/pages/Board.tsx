@@ -46,6 +46,11 @@ export function Board({
     selectInput(value)
     setValue(undefined)
   }, [value])
+  useEffect(() => {
+    if (value === undefined) return
+    selectInput(value)
+    setValue(undefined)
+  }, [value])
 
   const selectSquare = (sq: SquareType) => {
     if (sq.id === selectedSquare?.id) setSelectedSquare(undefined)
