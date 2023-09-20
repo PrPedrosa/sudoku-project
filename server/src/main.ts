@@ -18,7 +18,7 @@ NestFactory.create(AppModule)
   .then(app => {
     app.enableCors({ origin: process.env.ORIGIN })
     app.listen(3000, () => {
-      console.log('listening to requetss')
+      console.log('listening to requests')
     })
   })
   .catch(err => console.log('the error', err))

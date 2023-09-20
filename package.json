@@ -1,10 +1,10 @@
 {
-  "name": "sudoku-project",
-  "version": "1.0.0",
-  "description": "sudoku game",
-  "scripts": {
-    "s:install": "cd client && rm -rf node_modules && npm install && cd .. && cd server && rm -rf node_modules && npm install",
-    "start":"node server/dist/server.js"
-  },
-  "author": "Pedro Pedrosa"
+	"name": "sudoku-project",
+	"version": "1.0.0",
+	"description": "sudoku game",
+	"scripts": {
+		"s:install": "cd client && rm -rf node_modules && npm install && cd .. && cd server && rm -rf node_modules && npm install",
+		"start": "node server/dist/main.js"
+	},
+	"author": "Pedro Pedrosa"
 }
