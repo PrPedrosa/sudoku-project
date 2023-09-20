@@ -31,7 +31,16 @@ export function Board({
     selectSquare(board[selectedSquareId - 1])
     setSelectedSquare(board[selectedSquareId - 1])
   }, [selectedSquareId])
+  useEffect(() => {
+    selectSquare(board[selectedSquareId - 1])
+    setSelectedSquare(board[selectedSquareId - 1])
+  }, [selectedSquareId])
 
+  useEffect(() => {
+    if (value === undefined) return
+    selectInput(value)
+    setValue(undefined)
+  }, [value])
   useEffect(() => {
     if (value === undefined) return
     selectInput(value)
