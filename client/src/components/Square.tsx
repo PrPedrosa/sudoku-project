@@ -35,7 +35,6 @@ function Square({
 
   useEffect(() => {
     if (!changingSuperPosValue) return
-    console.log('helloo', changingSuperPosValue)
     if (sq.id === changingSuperPosValue.sqId) {
       if (changingSuperPosValue.val === 0) setSuperPosToShow(undefined)
       else {
@@ -87,7 +86,7 @@ function Square({
 
       <div
         key={sq.id}
-        className={cx('border-[2px] border-[#131313] flex  cursor-pointer bg-c-dark2 select-none', {
+        className={cx('border-[2px] border-[#6e6e6e] flex  cursor-pointer bg-c-dark2 select-none', {
           'border-r-black z-10': sq.id % 3 === 0,
           'border-l-black z-10': sq.id % 3 === 1,
           'border-b-black z-10': borderBottomBlackIds.includes(sq.id),

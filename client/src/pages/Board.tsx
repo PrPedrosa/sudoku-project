@@ -22,7 +22,7 @@ export function Board({
   const [loadingSuperPosChanging, setLoadingSuperPosChanging] = useState(false)
 
   const [selectedSquare, setSelectedSquare] = useState<SquareType>()
-  const inputs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
   const [selectedSquareId, value, setValue] = useKeyboardControls(selectedSquare)
 
   const changingSuperPosValue = useRef<{ sqId: number; val: number }>()
@@ -31,21 +31,7 @@ export function Board({
     selectSquare(board[selectedSquareId - 1])
     setSelectedSquare(board[selectedSquareId - 1])
   }, [selectedSquareId])
-  useEffect(() => {
-    selectSquare(board[selectedSquareId - 1])
-    setSelectedSquare(board[selectedSquareId - 1])
-  }, [selectedSquareId])
 
-  useEffect(() => {
-    if (value === undefined) return
-    selectInput(value)
-    setValue(undefined)
-  }, [value])
-  useEffect(() => {
-    if (value === undefined) return
-    selectInput(value)
-    setValue(undefined)
-  }, [value])
   useEffect(() => {
     if (value === undefined) return
     selectInput(value)
@@ -66,7 +52,6 @@ export function Board({
     if (!selectedSquare || initialSquares?.includes(selectedSquare.id)) return
     setLoadingSuperPosChanging(true)
     changingSuperPosValue.current = { sqId: selectedSquare.id, val: val }
-    console.log('on board', changingSuperPosValue.current)
   }
 
   const selectedSquareSiblings = board.filter(
@@ -76,8 +61,8 @@ export function Board({
   )
 
   return (
-    //only for solver mode
-    <div className="p-[5px] w-[100%] flex flex-col items-center justify-center gap-[15px] relative">
+    <div className="p-[5px] w-[100%] flex flex-col items-center justify-center gap-[15px] relative mt-8">
+      {/* only for solver mode */}
       {solve && (
         <div
           className="text-white p-[4px] absolute top-[-50px] right-[50%] translate-x-[50%] bg-c-dark2 border border-c-purple rounded-[5px] shadow-button-purple active:bg-c-purple cursor-pointer"
@@ -103,13 +88,15 @@ export function Board({
           )
         })}
       </div>
-      <div className="grid grid-cols-10 w-[100%] text-center gap-[5px] sm:w-[450px]">
+
+      {/* INPUTS */}
+      <div className="grid grid-cols-9 w-[100%] text-center gap-[3px] sm:w-[450px]">
         {inputs.map(i => (
           <div
             className={cx(
-              'border border-black px-[8px] text-c-purple text-[20px] font-semibold rounded-[5px] bg-c-dark2 shadow-button-purple select-none text-center cursor-pointer',
+              'border border-black px-[8px] py-[2px] text-c-purple text-[26px] font-semibold rounded-[5px] bg-c-dark2 shadow-button-purple select-none text-center cursor-pointer leading-none',
               'active:bg-c-purple active:text-black',
-              { 'text-red-700': i === 0, 'active:bg-red-700': i === 0 }
+              { 'text-red-700': i === 0, 'active:bg-red-700': i === 0, '!shadow-button-hard': boardMode === 'note' }
             )}
             onClick={() => {
               if (boardMode === 'value') selectInput(i)
@@ -121,11 +108,13 @@ export function Board({
           </div>
         ))}
       </div>
+
+      {/* BOARD MODES */}
       <div className="flex gap-[10px]">
         <div
           onClick={() => setBoardMode('note')}
           className={cx(
-            'border border-red-700 text-white p-[5px] rounded-md',
+            'border border-red-700 text-white p-[5px] rounded-md select-none',
             `${boardMode === 'note' && 'bg-red-700'}`
           )}
         >
@@ -134,8 +123,8 @@ export function Board({
         <div
           onClick={() => setBoardMode('value')}
           className={cx(
-            'border border-red-700 text-white p-[5px] rounded-md',
-            `${boardMode === 'value' && 'bg-red-700'}`
+            'border border-c-purple text-white p-[5px] rounded-md select-none',
+            `${boardMode === 'value' && 'bg-c-purple'}`
           )}
         >
           Value
